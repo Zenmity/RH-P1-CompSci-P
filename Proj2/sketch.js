@@ -22,8 +22,11 @@ function setup() {
   player.speed = 4;
   player.bounciness = 1;
   player.friction = 0;
-  // floor = new Sprite(400,800,800,20,'static')
   
+
+
+  // floor = new Sprite(400,800,800,20,'static')
+
   floor = new Sprite(xSize/2,ySize,xSize,20,'static')
   floor.bounciness = 1;
   floor.color = "pink";
@@ -43,18 +46,24 @@ function setup() {
 
 function draw() {
   background(90);
+  // gravityScale()
+  // player.speed.y = 0.3;
   world.gravity.y = 10
-      
+  
+  player.physics = "dynamic";
+
   if (kb.pressing('left'))  player.vel.x += -4;
   if (kb.pressing('right')) player.vel.x += 4;
   if (kb.pressing('up'))    player.vel.y += -4;
   if (kb.pressing('down'))  player.vel.y += 4;
   if (kb.pressing("space") && player.collider != 'static') {
-    // player.collider = 'static';
-    player.vel.y = 0
-    player.vel.x = 0
+    player.collider = 'static';
+    // player.vel.y = 0
+    // player.vel.x = 0
   }
-  if (kb.release())
+  // if (kb.release('space')) {
+  //   player.collider = 'dynamic'
+  // }
+
   // Add real-time movement and game loops here
 }
-//sketch
