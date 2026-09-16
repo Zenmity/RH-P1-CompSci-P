@@ -22,11 +22,8 @@ function setup() {
   player.speed = 4;
   player.bounciness = 1;
   player.friction = 0;
-  
-
-
   // floor = new Sprite(400,800,800,20,'static')
-
+  
   floor = new Sprite(xSize/2,ySize,xSize,20,'static')
   floor.bounciness = 1;
   floor.color = "pink";
@@ -46,8 +43,6 @@ function setup() {
 
 function draw() {
   background(90);
-  // gravityScale()
-  // player.speed.y = 0.3;
   world.gravity.y = 10
       
   if (kb.pressing('left'))  player.vel.x += -4;
@@ -59,6 +54,7 @@ function draw() {
     player.vel.y = 0
     player.vel.x = 0
   }
+  if (kb.release())
   // Add real-time movement and game loops here
 }
 //sketch
