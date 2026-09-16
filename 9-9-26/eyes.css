@@ -1,0 +1,10 @@
+:root {
+    --mea-culpa: "Mea Culpa", cursive;
+}
+
+h1 {
+    font-style: italic;
+    font-weight: 700;
+    font-family: "Mea Culpa", cursive;
+    font-size: 8rem;
+}
