@@ -85,7 +85,7 @@ function setup() {
   floor.bounciness = 1;
   floor.color = "blue";
 
-  wall2 = new Sprite(xSize,ySize/2,20,ySize,'static')
+  wall2 = new Sprite(xSize,ySize/2,20,ySize,'static')x``
   floor.bounciness = 1;
   floor.color = "blue";
 
@@ -141,7 +141,7 @@ function draw() {
       console.log(player.speed);
       lastLoggedMessage = player.speed;
     }, 500)
-    }
+  }
   
   // if (player.collides(bumper)) {
   //   player.vel.y = 0
