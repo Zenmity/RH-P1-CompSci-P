@@ -141,7 +141,7 @@ function draw() {
       console.log(player.speed);
       lastLoggedMessage = player.speed;
     }, 500)
-  }
+    }
   
   // if (player.collides(bumper)) {
   //   player.vel.y = 0

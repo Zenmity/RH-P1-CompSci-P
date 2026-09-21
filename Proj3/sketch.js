@@ -8,13 +8,27 @@ const bumperDiameter = (playerDiameter * 4) / 3;
 let maxSpeed = 60;
 let minSpeed = 0;
 
-let lastXvelocity;
+let lastXVelocity;
 let lastYVelocity;
 
 let player;
 let bumper;
 
 let lastLoggedMessage;
+
+let isPaused = false;
+
+let targets;
+
+function reset(sprite) {
+  sprite.velocity.x = random(-20, 20);
+  sprite.velocity.y = random(-20, 20);
+  sprite.position.x = random(0 + playerDiameter, sizeX - playerDiameter)
+  sprite.position.y = random(0 + playerDiameter, sizeY - playerDiameter)
+
+  console.log('"', sprite, '" RESET')
+
+}
 
 function setup() {
   createCanvas(sizeX, sizeY);
@@ -39,6 +53,9 @@ function setup() {
   bumper.physics = "static";
   bumper.bounciness = 1.2;
   bumper.friction = 0;
+
+  targets = new Group();
+  targets.add(bumper);
 }
 
 function draw() {
@@ -87,21 +104,22 @@ function draw() {
     player.speed = maxSpeed;
   }
 
-  if (player.collides(allSprites) === true) {
+  if (player.collides(targets)) {
     setTimeout(() => {
-      console.log(player.speed);
+      console.log("Collided: ",player.speed);
       lastLoggedMessage = player.speed;
     }, 500);
   }
-  if (pauseActive != true) {
+
+  if (isPaused != true) {
     if (kb.pressed("right")) {
       maxSpeed += 5;
-      console.log("Max: ", maxSpeed, "\nMin: ", player.speed);
+      console.log("Max: ", maxSpeed, "\nSpeed: ", player.speed);
     }
 
     if (kb.pressed("left")) {
       maxSpeed -= 5;
-      console.log("Max: ", maxSpeed, "\nMin: ", player.speed);
+      console.log("Max: ", maxSpeed, "\nSpeed: ", player.speed);
     }
 
     if (kb.pressed("up") && player.speed <= maxSpeed - 4) {
@@ -109,7 +127,7 @@ function draw() {
       console.log(player.speed);
     } else if (maxSpeed - 4 < player.speed && player.speed < maxSpeed) {
       player.speed = maxSpeed;
-      console.log(player.speed, " - maxspeed");
+      console.log("Max: ", maxSpeed, "\nSpeed: ", player.speed);
     }
 
     if (kb.pressed("down") && player.speed >= minSpeed + 4) {
@@ -117,16 +135,33 @@ function draw() {
       console.log(player.speed);
     } else if (minSpeed < player.speed && player.speed < minSpeed + 4) {
       player.speed = minSpeed;
-      console.log(player.speed, " - minspeed");
+      console.log("Max: ", maxSpeed, "\nSpeed: ", player.speed);
+    }
+
+    if (kb.pressed('l')) {
+      reset(player)
     }
   }
-  if (kb.pressed("space") && player.speed >= 0 && isPaused == false) {
-    lastXVelocity = player.velocity.x
-    player.velocity.x = 0
 
-    lastYVelocity = player.velocity.y
-    player.velocity.y = 0
+  if (kb.pressed("space")) {
+    if (isPaused === false) {
+      lastXVelocity = player.velocity.x;
+      player.velocity.x = 0;
 
-    //NEXT+++ isPaused DEFININTION
-  // Add real-time movement and game loops here
+      lastYVelocity = player.velocity.y;  
+      player.velocity.y = 0;
+
+      isPaused = true;
+
+      console.log("Paused")
+    } else if (isPaused === true) {
+      player.velocity.x = lastXVelocity;
+
+      player.velocity.y = lastYVelocity;
+
+      isPaused = false;
+
+      console.log("Unpaused")
+    }
+  }
 }
