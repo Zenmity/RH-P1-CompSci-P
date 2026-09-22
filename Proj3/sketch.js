@@ -23,11 +23,10 @@ let targets;
 function reset(sprite) {
   sprite.velocity.x = random(-20, 20);
   sprite.velocity.y = random(-20, 20);
-  sprite.position.x = random(0 + playerDiameter, sizeX - playerDiameter)
-  sprite.position.y = random(0 + playerDiameter, sizeY - playerDiameter)
+  sprite.position.x = random(0 + playerDiameter, sizeX - playerDiameter);
+  sprite.position.y = random(0 + playerDiameter, sizeY - playerDiameter);
 
-  console.log('"', sprite, '" RESET')
-
+  console.log('"' + sprite.name.toUpperCase() + '" RESET');
 }
 
 function setup() {
@@ -44,6 +43,7 @@ function setup() {
   player.velocity.y = random(-20, 20);
   player.bounciness = 1.2;
   player.friction = 0;
+  player.name = "player";
 
   bumper = new Sprite(
     player.x + randomSign * (playerDiameter + bumperDiameter),
@@ -99,14 +99,14 @@ function draw() {
 
   if (player.speed > maxSpeed) {
     if (player.speed > maxSpeed) {
-      console.log(player.speed, " - overspeed");
+      console.log("Overspeed: ", player.speed);
     }
     player.speed = maxSpeed;
   }
 
   if (player.collides(targets)) {
     setTimeout(() => {
-      console.log("Collided: ",player.speed);
+      console.log("Collided: ", player.speed);
       lastLoggedMessage = player.speed;
     }, 500);
   }
@@ -138,8 +138,14 @@ function draw() {
       console.log("Max: ", maxSpeed, "\nSpeed: ", player.speed);
     }
 
-    if (kb.pressed('l')) {
-      reset(player)
+    if (kb.pressing("l")) {
+      if (kb.pressed("p")) {
+        reset(player);
+      }
+
+      if (kb.pressed("b")) {
+        reset(bumper);
+      }
     }
   }
 
@@ -148,12 +154,12 @@ function draw() {
       lastXVelocity = player.velocity.x;
       player.velocity.x = 0;
 
-      lastYVelocity = player.velocity.y;  
+      lastYVelocity = player.velocity.y;
       player.velocity.y = 0;
 
       isPaused = true;
 
-      console.log("Paused")
+      console.log("Paused");
     } else if (isPaused === true) {
       player.velocity.x = lastXVelocity;
 
@@ -161,7 +167,7 @@ function draw() {
 
       isPaused = false;
 
-      console.log("Unpaused")
+      console.log("Unpaused");
     }
   }
 }
