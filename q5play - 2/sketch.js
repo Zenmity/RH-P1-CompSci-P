@@ -53,6 +53,7 @@ function setup() {
   bumper.physics = "static";
   bumper.bounciness = 1.2;
   bumper.friction = 0;
+  bumper.name = "bumper"
 
   targets = new Group();
   targets.add(bumper);
