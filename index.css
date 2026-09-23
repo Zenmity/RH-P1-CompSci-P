@@ -1,0 +1,17 @@
+:root {
+    --goodcolor: #fff;
+}
+
+html {
+    text-align: center;
+}
+
+h1 {
+    font-family: "Mea Culpa", cursive;
+    font-size: 5rem;
+}
+
+a {
+    font-family: "Arial", sans-serif;
+    font-size: 4.2rem;
+}
