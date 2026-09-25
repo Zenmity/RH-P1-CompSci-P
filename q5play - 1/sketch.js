@@ -24,7 +24,7 @@ function setup() {
   player =              new Sprite(xSize/2, ySize/2, 50);
   player.collider =     'dynamic';
   player.mass =         0.9;
-  player.color =        "lime";
+  player.color =        "pink";
   player.rotationLock = true;
   player.layer =        1000;
   player.speed =        random(1,4);

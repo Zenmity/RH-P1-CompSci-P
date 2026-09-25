@@ -2,16 +2,51 @@
     --goodcolor: #fff;
 }
 
-html {
+html,body {
     text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
 h1 {
     font-family: "Mea Culpa", cursive;
-    font-size: 5rem;
+    font-size: clamp(3.57rem,8vh,10rem);
+    line-height: 0.9;
 }
 
-a {
+h1 a {
+    text-transform: uppercase;
     font-family: "Arial", sans-serif;
-    font-size: 4.2rem;
+    font-size: clamp(2.8rem,6.27vh,10rem);
+}
+
+p a {
+
+    font-size: clamp(1rem,3vh,2rem);
+    text-transform: uppercase;
+    text-decoration: none;
+
+    line-height: 3rem;
+    border-radius: 4px;
+    border-color: #333;
+    padding: .25rem .5rem;
+    color: rgb(212, 212, 212);
+    background-color: green;
+}
+
+body {
+    display:flex;
+    flex-direction: column;
+}
+
+main {
+    flex:1;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
 }
