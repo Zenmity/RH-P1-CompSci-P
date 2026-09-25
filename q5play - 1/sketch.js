@@ -85,7 +85,7 @@ function setup() {
   floor.bounciness = 1;
   floor.color = "blue";
 
-  wall2 = new Sprite(xSize,ySize/2,20,ySize,'static')x``
+  wall2 = new Sprite(xSize,ySize/2,20,ySize,'static')
   floor.bounciness = 1;
   floor.color = "blue";
 
