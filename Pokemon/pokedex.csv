@@ -1260,3 +1260,4 @@ ID,Name,Form,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Image_U
 1024,Terapagos,Terastal Form,Normal,,600,95,95,110,105,110,85,https://img.pokemondb.net/sprites/scarlet-violet/icon/terapagos-terastal.png
 1024,Terapagos,Stellar Form,Normal,,700,160,105,110,130,110,85,https://img.pokemondb.net/sprites/scarlet-violet/icon/terapagos-stellar.png
 1025,Pecharunt,,Poison,Ghost,600,88,88,160,88,88,88,https://img.pokemondb.net/sprites/scarlet-violet/icon/pecharunt.png
+1026,John,,Poison,Dragon,6,1,1,1,1,1,1,https://media.licdn.com/dms/image/v2/C5603AQGmRCE4xxKhRg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1566124987796?e=2147483647&v=beta&t=EbKIykubSuQgS5aFPPSsTI1VhwsITRFyay9yv7_A2ns
