@@ -34,7 +34,7 @@ function runAlgorithms() {
       type2 = "";
     }
 
-    let tag = ` <div class="bg-stone-300 m-4 w-40 grid justify-items-center">
+    let tag = ` <div class="bg-stone-300 m-4 w-40 justify-items-center">
                   <img src=${url}>
                   <h2 class="pb-0.01">${name}</h2>
                   <h3 class="text-sm pt-0.2">#${i}</h3>
