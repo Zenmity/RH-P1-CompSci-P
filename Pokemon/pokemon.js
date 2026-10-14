@@ -10,8 +10,42 @@ Papa.parse("pokedex.csv", {
     console.log("Loaded " + pokedex.length + " Pokémon records.");
     console.log("Sample record:", pokedex[0]);
 
-    // Run classroom exercises
-    runAlgorithms();
+    function getRandomIndex(max) {
+      return Math.floor(Math.random() * max);
+    }
+    function rPIndex() {
+      // return getRandomIndex(pokedex.length);
+      let ii = pokedex.length - 3;
+      return ii;
+    }
+
+    function getPokemon(index) {
+      console.log(`Name: `, pokedex[rPIndex()]);
+      let url = index.Image_URL;
+      let name = index.Name;
+      let indexNum = index.ID;
+      let tag = ` <div class="font-sans bg-stone-300 m-4 w-40 p-4 shadow-lg hover:shadow-2xl rounded-2xl transition duration-200 ease-in-out justify-center">
+                  <img src=${url}>
+                  <h2 class="pb-0.01">${name}</h2>
+                  <h3 class="text-sm pt-0.2">#${indexNum}</h3>
+                </div>`;
+      return tag;
+    }
+
+    let lastNum = 0;
+
+    document
+      .getElementById("randomBtn")
+      .addEventListener("click", function (event) {
+        let html = "";
+        for (i = 0; i < 1; i++) {
+          let rand = rPIndex();
+          html = html + getPokemon(pokedex[rand]);
+        }
+        document.getElementById("cards").innerHTML = html;
+      });
+
+    // runAlgorithms();
   },
 });
 
@@ -34,7 +68,7 @@ function runAlgorithms() {
       type2 = "";
     }
 
-    let tag = ` <div class="bg-stone-300 m-4 w-40 justify-items-center">
+    let tag = ` <div class="font-sans bg-stone-300 m-4 w-40 p-4 shadow-lg hover:shadow-2xl rounded-2xl transition duration-200 ease-in-out">
                   <img src=${url}>
                   <h2 class="pb-0.01">${name}</h2>
                   <h3 class="text-sm pt-0.2">#${i}</h3>
@@ -44,7 +78,9 @@ function runAlgorithms() {
                   </div>
                 </div>`;
     html = html + tag;
+
     console.log(i);
+    console.log(type2);
   }
 
   document.getElementById("cards").innerHTML = html;
