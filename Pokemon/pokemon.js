@@ -14,9 +14,9 @@ Papa.parse("pokedex.csv", {
       return Math.floor(Math.random() * max);
     }
     function rPIndex() {
-      // return getRandomIndex(pokedex.length);
-      let ii = pokedex.length - 3;
-      return ii;
+      return getRandomIndex(pokedex.length);
+      // let ii = pokedex.length - 1;
+      // return ii;
     }
 
     function getPokemon(index) {
@@ -37,12 +37,18 @@ Papa.parse("pokedex.csv", {
     document
       .getElementById("randomBtn")
       .addEventListener("click", function (event) {
-        let html = "";
-        for (i = 0; i < 1; i++) {
-          let rand = rPIndex();
-          html = html + getPokemon(pokedex[rand]);
+        // let html = "";
+        // for (i = 0; i < 1; i++) {
+        //   let rand = rPIndex();
+        //   html = html + getPokemon(pokedex[rand]);
+        // }
+        // document.getElementById("cards").innerHTML = html;
+
+        let picks = [];
+        for (let i = 0; i < 4; i++) {
+          picks.push(getRandomIndex(pokedex.length));
         }
-        document.getElementById("cards").innerHTML = html;
+        console.log(picks);
       });
 
     // runAlgorithms();
