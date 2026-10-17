@@ -99,6 +99,21 @@ Papa.parse("pokedex.csv", {
         console.log(exist);
         document.getElementById("buttons").innerHTML = html1;
         console.log(correctBtnIndex);
+
+        for (i = 0; i < 4; i++) {
+          let btn = document.getElementById(`btn${i}`)
+
+          if(i === correctBtnIndex) {
+            btn.addEventListener("click", function() {
+              console.log("Correct!");
+            })
+          } else {
+            btn.addEventListener("click", function() {
+              console.log("Wrong")
+            })
+          }
+        }
+
       });
 
     // runAlgorithms();
