@@ -106,6 +106,8 @@ Papa.parse("pokedex.csv", {
           if(i === correctBtnIndex) {
             btn.addEventListener("click", function() {
               console.log("Correct!");
+              btn.classList.remove("bg-blue-600")
+              btn.classList.add("bg-green-600")
             })
           } else {
             btn.addEventListener("click", function() {
