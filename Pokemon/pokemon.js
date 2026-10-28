@@ -101,21 +101,22 @@ Papa.parse("pokedex.csv", {
         console.log(correctBtnIndex);
 
         for (i = 0; i < 4; i++) {
-          let btn = document.getElementById(`btn${i}`)
+          let btn = document.getElementById(`btn${i}`);
 
-          if(i === correctBtnIndex) {
-            btn.addEventListener("click", function() {
+          if (i === correctBtnIndex) {
+            btn.addEventListener("click", function () {
               console.log("Correct!");
-              btn.classList.remove("bg-blue-600")
-              btn.classList.add("bg-green-600")
-            })
+              btn.classList.remove("bg-blue-600");
+              btn.classList.add("bg-green-600");
+            });
           } else {
-            btn.addEventListener("click", function() {
-              console.log("Wrong")
-            })
+            btn.addEventListener("click", function () {
+              console.log("Wrong");
+              btn.classList.remove("bg-blue-600");
+              btn.classList.add("bg-red-600");
+            });
           }
         }
-
       });
 
     // runAlgorithms();
