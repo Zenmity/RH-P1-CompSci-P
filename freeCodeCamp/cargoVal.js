@@ -71,4 +71,9 @@ function validateManifest(manifest) {
 
 console.log(validateManifest({ containerId: 3.5 }));
 
-let processManifest = (manifest) => {};
+function processManifest(manifest) {
+  console.log(`Validation success: ${manifest.containerId}`)
+  console.log(`Total weight: ${manifest.weight*.45} kg`)
+};
+
+processManifest({ containerId: 55, destination: "Carmel", weight: 400, unit: "lb", hazmat: false })
